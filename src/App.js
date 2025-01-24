@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 
 function App() {
   return (
+
+
+    <>
     <div className="flex items-center justify-center min-h-screen text-white">
 
 
@@ -43,6 +46,39 @@ function App() {
       </motion.button>
 
     </div>
+
+
+    <div className="flex items-center justify-center min-h-screen">
+        <motion.div
+          className="bg-gray-400 w-24 h-24"
+          animate={{
+            scale: [1, 2, 1],
+            rotate: [0, 0, 180, 180, 0],
+            borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+          }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatDelay: 1
+          }}
+        />
+        <motion.div
+          className="bg-gray-800 w-24 h-24"
+          animate={{
+            scale: [1, 2, 2, 1, 1],
+            rotate: [0, 0, 180, 180, 0],
+            borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+          }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatDelay: 1
+          }}
+        />
+      </div>
+</>
   );
 }
 
