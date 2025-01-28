@@ -6,6 +6,8 @@ function App() {
 
   const scale = useMotionValue(2);
   const scale2 = useMotionValue(1);
+  const x = useMotionValue(0);
+
   const onRangeChange = (event) => {
     scale2.set(parseFloat(event.target.value))
   }
@@ -179,6 +181,25 @@ function App() {
           onChange={onRangeChange}
         />
       </div>
+    </div>
+
+
+
+
+    <div className='flex items-center flex-col gap-8 justify-center min-h-screen'>
+
+      <motion.div
+      drag= 'x'
+      dragConstraints = {{left:0,right:0}}
+       style = {{ x }}
+
+      className='bg-blue-800 text-white px-3 py-2 rounded-md '
+      >
+
+        Drag me 
+
+      </motion.div>
+
     </div>
 
 
