@@ -1,8 +1,17 @@
-import { motion } from 'framer-motion';
+import { motion,useMotionValue } from 'framer-motion';
 import './App.css'
 
 
 function App() {
+
+  const scale = useMotionValue(2);
+  const scale2 = useMotionValue(1);
+  const onRangeChange = (event) => {
+    scale2.set(parseFloat(event.target.value))
+  }
+
+
+
   return (
 
 
@@ -111,7 +120,7 @@ function App() {
         transition={{
           repeat:Infinity,
           //times : [0, 0.25, 0.75, 0.8, 1],
-          duration:3,
+          duration:10,
           repeatDelay:1,
 
         }}
@@ -124,8 +133,60 @@ function App() {
       <p className="mt-auto  p-2">Make your animations work on all devices</p>
       </div>
     </div>
+
+
+
+    
+
+     <div className='w-full h-screen grid place-items-center'>
+
+      <motion.div className='rounded-full w-32 h-12 bg-blue-600'
+
+      style={{scale}}
+
+
+
+
+
+
+      
+      >
+
+
+      </motion.div>
+
+    </div> 
+
+
+
+
+    <div className="flex items-center flex-col gap-8 justify-center min-h-screen">
+      <motion.button
+        className="bg-black text-white px-3 py-2 rounded-md"
+        style={{ scale2 }}
+        transition={{ type: 'spring', damping: 300 }}
+
+      >
+        Scale ⚖️
+      </motion.button>
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 p-3 bg-white/10 rounded-xl flex items-center justify-center">
+        <input
+          type="range"
+          min={0.5}
+          max={5}
+          step={0.01}
+          defaultValue={1}
+          onChange={onRangeChange}
+        />
+      </div>
+    </div>
+
+
+
 </>
   );
 } 
 
 export default App;
+
+
